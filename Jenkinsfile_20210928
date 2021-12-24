@@ -13,14 +13,14 @@ pipeline {
   }
   stage ('create docker image') {
    steps {
-    sh 'sudo docker build -t himanshu185/addressbook:20210928.$BUILD_NUMBER .'
+    sh 'sudo docker build -t priyaramlak/addressbook:20210928.$BUILD_NUMBER .'
    }
   }
   stage ('upload image to docker registry') {
    steps {
      sh '''
            sudo docker login --username $DOCKER_USR --password $DOCKER_PSW
-           sudo docker push himanshu185/addressbook:20210928.$BUILD_NUMBER
+           sudo docker push priyaramlak/addressbook:20210928.$BUILD_NUMBER
         '''
    }   
   }
